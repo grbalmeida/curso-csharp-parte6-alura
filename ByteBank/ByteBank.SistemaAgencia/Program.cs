@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ByteBank.Modelos;
+using ByteBank.Modelos.Funcionarios;
+using System;
 using System.Text.RegularExpressions;
 
 namespace ByteBank.SistemaAgencia
@@ -7,7 +9,16 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-            TestaRegex();
+            Console.WriteLine("Olá, mundo!");
+            Console.WriteLine(123);
+            Console.WriteLine(10.5);
+            Console.WriteLine(true);
+
+            object conta = new ContaCorrente(456, 687876);
+            Console.WriteLine(conta);
+
+            object desenvolvedor = new Desenvolvedor("4564654");
+            Console.WriteLine(desenvolvedor);
 
             Console.ReadLine();
         }
