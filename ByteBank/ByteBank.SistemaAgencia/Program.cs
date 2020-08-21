@@ -1,6 +1,4 @@
-﻿using Humanizer;
-using System;
-using System.Globalization;
+﻿using System;
 
 namespace ByteBank.SistemaAgencia
 {
@@ -8,19 +6,14 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-            TimeSpan trintaSegundos = TimeSpan.FromSeconds(30);
-            TimeSpan umaHora = TimeSpan.FromMinutes(60);
-            TimeSpan duasHoras = TimeSpan.FromHours(2);
+            // pagina?argumentos
+            // 012345678
+            
+            string url = "paginas?argumentos";
 
-            CultureInfo culture = new CultureInfo("pt-BR");
-
-            string mensagemTrintaSegundos = "Vencimento em " + TimeSpanHumanizeExtensions.Humanize(trintaSegundos, 1, culture);
-            string mensagemUmaHora = "Vencimento em " + TimeSpanHumanizeExtensions.Humanize(umaHora, 1, culture);
-            string mensagemDuasHoras = "Vencimento em " + TimeSpanHumanizeExtensions.Humanize(duasHoras, 1, culture);
-
-            Console.WriteLine(mensagemTrintaSegundos);
-            Console.WriteLine(mensagemUmaHora);
-            Console.WriteLine(mensagemDuasHoras);
+            Console.WriteLine(url);
+            string argumentos = url.Substring(8);
+            Console.WriteLine(argumentos);
 
             Console.ReadLine();
         }
