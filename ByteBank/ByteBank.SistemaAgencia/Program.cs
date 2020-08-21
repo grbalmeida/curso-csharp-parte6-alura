@@ -6,46 +6,18 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-            // pagina?argumentos
-            // 012345678
+            string urlParametros = "http://www.bytebank.com/cambio?moedaOrigem=real&moedaDestino=dolar&valor=1500";
 
-            string palavra = "moedaDestino=real";
-            string nomeArgumento = "moedaDestino";
-            
-            int indice = palavra.IndexOf(nomeArgumento);
-            
-            Console.WriteLine(indice);
-  
-            Console.WriteLine("Tamanho da string nomeArgumento " + nomeArgumento.Length);
+            ExtratorValorDeArgumentosURL extrator = new ExtratorValorDeArgumentosURL(urlParametros);
 
-            Console.WriteLine(palavra);
-            Console.WriteLine(palavra.Substring(indice));
-            Console.WriteLine(palavra.Substring(indice + nomeArgumento.Length + 1));
-            
-            Console.ReadLine();
+            string moedaOrigem = extrator.GetValor("moedaOrigem");
+            Console.WriteLine("Valor de moedaOrigem: " + moedaOrigem);
 
-            // Testando o IsNullOrEmpty
-            string textoVazio = "";
-            string textoNulo = null;
-            string textoQualquer = "wsaodkowkqE";
+            string moedaDestino = extrator.GetValor("moedaDestino");
+            Console.WriteLine("Valor de moedaDestino: " + moedaDestino);
 
-            Console.WriteLine(String.IsNullOrEmpty(textoVazio));
-            Console.WriteLine(String.IsNullOrEmpty(textoNulo));
-            Console.WriteLine(String.IsNullOrEmpty(textoQualquer));
-
-            Console.ReadLine();
-
-            ExtratorValorDeArgumentosURL extrator = new ExtratorValorDeArgumentosURL(null);
-            
-            string url = "pagina?moedaOrigem=real&moedaDestino=dolar";
-
-            int indiceInterrogacao = url.IndexOf('?');
-
-            Console.WriteLine(indiceInterrogacao);
-
-            Console.WriteLine(url);
-            string argumentos = url.Substring(indiceInterrogacao + 1);
-            Console.WriteLine(argumentos);
+            string valor = extrator.GetValor("Valor");
+            Console.WriteLine("Valor de Valor: " + valor);
 
             Console.ReadLine();
         }
