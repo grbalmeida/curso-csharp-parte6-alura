@@ -16,7 +16,7 @@ namespace ByteBank.SistemaAgencia
             string moedaDestino = extrator.GetValor("moedaDestino");
             Console.WriteLine("Valor de moedaDestino: " + moedaDestino);
 
-            string valor = extrator.GetValor("Valor");
+            string valor = extrator.GetValor("VALOR");
             Console.WriteLine("Valor de Valor: " + valor);
 
             Console.ReadLine();
