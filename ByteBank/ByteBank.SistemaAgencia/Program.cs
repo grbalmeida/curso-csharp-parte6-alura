@@ -7,15 +7,7 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-            // string padrao = "[0123456789][0123456789][0123456789][0123456789][-][0123456789][0123456789][0123456789][0123456789]";
-            // string padrao = "[0-9][0-9][0-9][0-9][-][0-9][0-9][0-9][0-9]";
-            string padrao = "[0-9]{4}[-][0-9]{4}";
-
-            string textoDeTeste = "Meu nome é Guilherme, me ligue em 1234-1234";
-
-            Match resultado = Regex.Match(textoDeTeste, padrao);
-
-            Console.WriteLine(resultado.Value);
+            TestaRegex();
 
             Console.ReadLine();
         }
@@ -43,6 +35,24 @@ namespace ByteBank.SistemaAgencia
 
             string valor = extrator.GetValor("VALOR");
             Console.WriteLine("Valor de Valor: " + valor);
+        }
+
+        static void TestaRegex()
+        {
+            // string padrao = "[0123456789][0123456789][0123456789][0123456789][-][0123456789][0123456789][0123456789][0123456789]";
+            // string padrao = "[0-9][0-9][0-9][0-9][-][0-9][0-9][0-9][0-9]";
+            // string padrao = "[0-9]{4}[-][0-9]{4}";
+            // string padrao = "[0-9]{4,5}[-][0-9]{4}";
+            // string padrao = "[0-9]{4,5}[-]{0,1}[0-9]{4}";
+            // string padrao = "[0-9]{4,5}-{0,1}[0-9]{4}";
+            // string padrao = "[0-9]{4,5}-?[0-9]{4}";
+            string padrao = @"\d{4,5}-?\d{4}";
+
+            string textoDeTeste = "Meu nome é Guilherme, me ligue em 91234-1234";
+
+            Match resultado = Regex.Match(textoDeTeste, padrao);
+
+            Console.WriteLine(resultado.Value);
         }
     }
 }
